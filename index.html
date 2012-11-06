@@ -1,0 +1,324 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="cleartype" content="on">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="x-dns-prefetch-control" content="off"/></head>
+
+	<link rel="shortcut icon" href="http://static.tumblr.com/jdwzxqr/JSrlkn0ga/favicon.png">
+
+	<title>Palm Reader &mdash; What media queries can my device see right now?</title>
+	
+	<script type="text/javascript" src="http://fast.fonts.com/jsapi/3d87dfc2-86b0-4c9e-a7ed-37afe7faf358.js"></script>
+
+	<style>
+	
+	/* Tiny reset */
+	h1, h2, h3, p, li, ul, body {
+		padding: 0;
+		margin: 0;
+	}
+	body {
+		background: #f1f1f1;
+		font-family: UniversLTW01-47LightCn,sans-serif;
+		color: #343434;
+	}
+	.container {
+		padding: 1.618em;
+	}
+	.bar {
+		background: #2e2f2f;
+		color: #fff;
+		overflow: hidden;
+	}
+	h1 {
+		padding: 0.6em 0.6em 0.6em 1em;
+		font-size: 1.6em;
+		margin-bottom: 0;
+	}
+	.bar p {
+		margin-bottom: 1em;
+		padding: 0 1.6em;
+	}
+	h1, h2 {
+		font-weight: normal;
+		text-transform: uppercase;
+	}
+	h2 {
+		font-size: 0.95em;
+	}
+	p, ul {
+		margin-bottom: 2.618em;
+	}
+	p.test {
+		font-size:0.85em;
+	}
+	hr {
+		border: none;
+		border-top: 1px solid rgba(255,255,255,0.4);
+		clear: both;
+		margin-top: 0;
+		margin-bottom: 2.618em;
+	}
+	li {
+		margin-bottom: 0.65em;
+		list-style:none;
+	}
+	p {
+		color: #757575;
+	}
+	ul li.active {
+		display: none;
+	}
+	ul li.inactive {
+		display: block;
+	}
+	a {
+		color: #d14836;
+	}
+	span {
+		padding-left: 0.5em;
+		font-size: 0.8em;
+		color: #757575;
+	}
+	code {
+		background: black;
+		color: white;
+		padding: 5px;
+		font-family: UniversLTW01-47LightCn,sans-serif;
+		text-transform: uppercase;
+	}
+	.inactive code {
+		background: #ccc;
+	}
+
+	@media screen {
+		li.active.screen {display:block}
+		li.inactive.what-screen {display:none}
+	}
+	@media print {
+		li.active.print{display:block}
+		li.inactive.what-print {display:none}
+	}
+	@media projection {
+		li.active.projection {display:block}
+		li.inactive.what-projection {display:none}
+	}
+	@media handheld {
+		li.active.handheld {display:block}
+		li.inactive.what-handheld {display:none}
+	}
+	@media (orientation : portrait) {
+		li.active.portrait {display:block}
+		li.inactive.what-portrait {display:none}
+	}
+	@media (orientation : landscape) {
+		li.active.landscape {display:block}
+		li.inactive.what-landscape {display:none}
+	}
+	@media (-webkit-min-device-pixel-ratio: 2) {
+		li.active.retina {display:block}
+		li.inactive.what-retina {display:none}
+	}
+	@media tv {
+		li.active.tv {display:block}
+		li.inactive.what-tv {display:none}
+	}
+	@media (color) {
+		li.active.color {display:block}
+		li.inactive.what-color {display:none}
+	}
+	@media (min-color-index: 1) {
+		li.active.color-index {display:block}
+		li.inactive.what-color-index {display:none}
+	}
+	@media (monochrome) {
+		li.active.monochrome {display:block}
+		li.inactive.what-monochrome {display:none}
+	}
+	@media (min-device-width:1px) {
+		li.active.min-device-width {display:block}
+		li.inactive.what-min-device-width {display:none}
+	}
+	@media (max-device-width:100000em) {
+		li.active.max-device-width {display:block}
+		li.inactive.what-max-device-width {display:none}
+	}
+	@media (min-device-height:1px) {
+		li.active.min-device-height {display:block}
+		li.inactive.what-min-device-height {display:none}
+	}
+	@media (max-device-height:100000em) {
+		li.active.max-device-height {display:block}
+		li.inactive.what-max-device-height {display:none}
+	}
+	@media (min-width:1px) {
+		li.active.min-width {display:block}
+		li.inactive.what-min-width {display:none}
+	}
+	@media (max-width:1000em) {
+		li.active.max-width {display:block}
+		li.inactive.what-max-width {display:none}
+	}
+	@media (min-resolution:1dpcm) {
+		li.active.min-resolution {display:block}
+		li.inactive.what-min-resolution {display:none}
+	}
+	@media (max-resolution:10000dpcm) {
+		li.active.max-resolution {display:block}
+		li.inactive.what-max-resolution {display:none}
+	}
+	@media (scan:progressive) {
+		li.active.scan-progressive {display:block}
+		li.inactive.what-scan-progressive {display:none}
+	}
+	@media (scan:interlace) {
+		li.active.scan-interlace {display:block}
+		li.inactive.what-scan-interlace {display:none}
+	}
+	@media (grid) {
+		li.active.grid {display:block}
+		li.inactive.what-grid {display:none}
+	}
+	@media (luminosity:normal) {
+		li.active.luminosity-normal {display:block}
+		li.inactive.what-luminosity-normal {display:none}
+	}
+	@media (luminosity:dim) {
+		li.active.luminosity-dim {display:block}
+		li.inactive.what-luminosity-dim {display:none}
+	}
+	@media (luminosity:washed) {
+		li.active.luminosity-washed {display:block}
+		li.inactive.what-luminosity-washed {display:none}
+	}
+	@media (pointer:coarse) {
+		li.active.coarse {display:block}
+		li.inactive.what-coarse {display:none}
+	}
+	@media (pointer:fine) {
+		li.active.fine {display:block}
+		li.inactive.what-fine {display:none}
+	}
+	@media (pointer:none) {
+		li.active.pointer-none {display:block}
+		li.inactive.what-pointer-none {display:none}
+	}
+	@media (script) {
+		li.active.script {display:block}
+		li.inactive.what-script {display:none}	
+	}
+	@media (hover) {
+		li.active.hover {display:block}
+		li.inactive.what-hover {display:none}	
+	}
+	@media (min-width:36.25em) {
+		h1 {
+			float: left;
+		}
+		.bar p {
+			padding: 1.4em 0 0;
+			margin-bottom: 0;
+		}
+	}
+	</style>
+
+</head>
+<body>
+  
+	<div class="bar">
+		<h1>Palm Reader</h1>
+		<p>Showing what @media features your device can and can't see</p>
+	</div>
+
+	<div class="container">
+
+		<h2>Owner's Manual</h2>
+		<p class="test">All the media query tests are listed below, the darker ones are currently active on this device</p>
+		<ul>
+			<li class="active screen"><code>screen</code></li>
+			<li class="inactive what-screen"><code>screen</code></li>
+			<li class="active print"><code>print</code></li>
+			<li class="inactive what-print"><code>print</code></li>
+			<li class="active tv"><code>tv</code></li>
+			<li class="inactive what-tv"><code>tv</code></li>
+			<li class="active color"><code>color</code></li>
+			<li class="inactive what-color"><code>color</code></li>
+			<li class="active color-index"><code>(color-index)</code></li>
+			<li class="inactive what-color-index"><code>(color-index)</code></li>
+			<li class="active monochrome"><code>monochrome</code></li>
+			<li class="inactive what-monochrome"><code>monochrome</code></li>
+			<li class="active handheld"><code>handheld</code></li>
+			<li class="inactive what-handheld"><code>handheld</code></li>
+			<li class="active projection"><code>projection</code></li>
+			<li class="inactive what-projection"><code>projection</code></li>
+			<li class="active portrait"><code>(orientation : portrait)</code></li>
+			<li class="inactive what-portrait"><code>(orientation : portrait)</code></li>
+			<li class="active landscape"><code>(orientation : landscape)</code></li>
+			<li class="inactive what-landscape"><code>(orientation : landscape)</code></li>
+			<li class="active retina"><code>(-webkit-min-device-pixel-ratio: 2)</code></li>
+			<li class="inactive what-retina"><code>(-webkit-min-device-pixel-ratio: 2)</code></li>
+			<li class="active scan-progressive"><code>(scan:progressive)</code></li>
+			<li class="inactive what-scan-progressive"><code>(scan:progressive)</code></li>
+			<li class="active scan-interlace"><code>(scan:interlace)</code></li>
+			<li class="inactive what-scan-interlace"><code>(scan:interlace)</code></li>
+			<li class="active grid"><code>(grid)</code></li>
+			<li class="inactive what-grid"><code>(grid)</code></li>
+			<li class="active min-device-width"><code>(min-device-width)</code></li>
+			<li class="inactive what-min-device-width"><code>(min-device-width)</code></li>
+			<li class="active max-device-width"><code>(max-device-width)</code></li>
+			<li class="inactive what-max-device-width"><code>(max-device-width)</code></li>
+			<li class="active min-device-height"><code>(min-device-height)</code></li>
+			<li class="inactive what-min-device-height"><code>(min-device-height)</code></li>
+			<li class="active max-device-height"><code>(max-device-height)</code></li>
+			<li class="inactive what-max-device-height"><code>(max-device-height)</code></li>
+			<li class="active min-width"><code>(min-width)</code></li>
+			<li class="inactive what-min-width"><code>(min-width)</code></li>
+			<li class="active max-width"><code>(max-width)</code></li>
+			<li class="inactive what-max-width"><code>(max-width)</code></li>
+			<li class="active min-resolution"><code>(min-resolution)</code></li>
+			<li class="inactive what-min-resolution"><code>(min-resolution)</code></li>
+			<li class="active max-resolution"><code>(max-resolution)</code></li>
+			<li class="inactive what-max-resolution"><code>(max-resolution)</code></li>
+			<li class="active fine"><code>(pointer:coarse)</code> <span>[MQ Level 4]</li>
+			<li class="inactive what-fine"><code>(pointer:coarse)</code> <span>[MQ Level 4]</li>
+			<li class="active coarse"><code>(pointer:fine)</code> <span>[MQ Level 4]</li>
+			<li class="inactive what-coarse"><code>(pointer:fine)</code> <span>[MQ Level 4]</li>
+			<li class="active pointer-none"><code>(pointer:none)</code> <span>[MQ Level 4]</li>
+			<li class="inactive what-pointer-none"><code>(pointer:none)</code> <span>[MQ Level 4]</li>
+			<li class="active luminosity-normal"><code>(luminosity:normal)</code> <span>[MQ Level 4]</li>
+			<li class="inactive what-luminosity-normal"><code>(luminosity:normal)</code> <span>[MQ Level 4]</li>
+			<li class="active luminosity-dim"><code>(luminosity:dim)</code> <span>[MQ Level 4]</li>
+			<li class="inactive what-luminosity-dim"><code>(luminosity:dim)</code> <span>[MQ Level 4]</li>
+			<li class="active luminosity-washed"><code>(luminosity:washed)</code> <span>[MQ Level 4]</li>
+			<li class="inactive what-luminosity-washed"><code>(luminosity:washed)</code> <span>[MQ Level 4]</li>
+			<li class="active hover"><code>(hover)</code> <span>[MQ Level 4]</li>
+			<li class="inactive what-hover"><code>(hover)</code> <span>[MQ Level 4]</li>
+			<li class="active script"><code>(script)</code> <span>[MQ Level 4]</li>
+			<li class="inactive what-script"><code>(script)</code> <span>[MQ Level 4]</li>
+		</ul>
+
+		<hr>
+		<div id="byline" class="da-all t-all m-all"><p class="test">A tool built purely in HTML and CSS by <a href="http://twitter.com/jordanmoore">Jordan Moore</a>.</p></div>
+	</div>
+
+
+<script type="text/javascript"> 
+ 
+ var _gaq = _gaq || [];
+ _gaq.push(['_setAccount', 'UA-7180140-5']);
+ _gaq.push(['_trackPageview']);
+ 
+ (function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ })();
+ 
+</script> 
+
+
+</body>
+</html>
