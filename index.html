@@ -52,7 +52,7 @@
 	p, ul {
 		margin-bottom: 2.618em;
 	}
-	p.test {
+	p.test, #byline p {
 		font-size:0.85em;
 	}
 	hr {
@@ -93,7 +93,9 @@
 	.inactive code {
 		background: #ccc;
 	}
-
+	#byline {
+		text-align: center;
+	}
 	@media screen {
 		li.active.screen {display:block}
 		li.inactive.what-screen {display:none}
@@ -301,7 +303,9 @@
 		</ul>
 
 		<hr>
-		<div id="byline" class="da-all t-all m-all"><p class="test">A tool built purely in HTML and CSS by <a href="http://twitter.com/jordanmoore">Jordan Moore</a>.</p></div>
+		<div id="byline">
+			<p>A tool built purely in HTML and CSS by <a href="http://twitter.com/jordanmoore">Jordan Moore</a>. Make it better <a href="https://github.com/jordanmoore/palmreader">on GitHub</a>.</p>
+		</div>
 	</div>
 
 
