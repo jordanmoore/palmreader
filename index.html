@@ -5,7 +5,7 @@
 	<meta http-equiv="cleartype" content="on">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width">
-	<meta http-equiv="x-dns-prefetch-control" content="off"/></head>
+	<meta http-equiv="x-dns-prefetch-control" content="off">
 
 	<link rel="shortcut icon" href="http://static.tumblr.com/jdwzxqr/JSrlkn0ga/favicon.png">
 
@@ -164,6 +164,14 @@
 		li.active.max-width {display:block}
 		li.inactive.what-max-width {display:none}
 	}
+	@media (min-height:1px) {
+		li.active.min-height {display:block}
+		li.inactive.what-min-height {display:none}
+	}
+	@media (max-height:1000em) {
+		li.active.max-height {display:block}
+		li.inactive.what-max-height {display:none}
+	}
 	@media (min-resolution:1dpcm) {
 		li.active.min-resolution {display:block}
 		li.inactive.what-min-resolution {display:none}
@@ -280,6 +288,10 @@
 			<li class="inactive what-min-width"><code>(min-width)</code></li>
 			<li class="active max-width"><code>(max-width)</code></li>
 			<li class="inactive what-max-width"><code>(max-width)</code></li>
+			<li class="active min-height"><code>(min-height)</code></li>
+			<li class="inactive what-min-height"><code>(min-height)</code></li>
+			<li class="active max-height"><code>(max-height)</code></li>
+			<li class="inactive what-max-height"><code>(max-height)</code></li>
 			<li class="active min-resolution"><code>(min-resolution)</code></li>
 			<li class="inactive what-min-resolution"><code>(min-resolution)</code></li>
 			<li class="active max-resolution"><code>(max-resolution)</code></li>
